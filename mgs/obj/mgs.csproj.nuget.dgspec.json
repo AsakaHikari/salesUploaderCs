@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asaka\\source\\repos\\salesUploader\\mgs\\mgs.csproj": {}
+    "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asaka\\source\\repos\\salesUploader\\mgs\\mgs.csproj": {
+    "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asaka\\source\\repos\\salesUploader\\mgs\\mgs.csproj",
+        "projectUniqueName": "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj",
         "projectName": "mgs",
-        "projectPath": "C:\\Users\\asaka\\source\\repos\\salesUploader\\mgs\\mgs.csproj",
-        "packagesPath": "C:\\Users\\asaka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asaka\\source\\repos\\salesUploader\\mgs\\obj\\",
+        "projectPath": "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj",
+        "packagesPath": "C:\\Users\\na0aya2e\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\asaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\na0aya2e\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[0.13.0, )"
             },
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.94.2, )"
+            },
             "Google.Apis.Sheets.v4": {
               "target": "Package",
               "version": "[1.43.0.1856, )"
@@ -49,6 +53,10 @@
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.18, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.6.0, )"
             },
             "Selenium.Support": {
               "target": "Package",
