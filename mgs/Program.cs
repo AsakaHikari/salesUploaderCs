@@ -20,17 +20,19 @@ namespace mgs
     class Program
     {
 
-        // If modifying these scopes, delete your previously saved credentials
-        // at ~/.credentials/sheets.googleapis.com-dotnet-quickstart.json
-        static string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static string ApplicationName = "Google Sheets API .NET Quickstart";
         static void Main(string[] args)
         {
 
 
             Program pg = new Program();
+            /**
+             * いまのところ、Mgs,Unext,FANZAという３つのサイトからそれぞれ売上報告を受け取れる
+             * ようになっており、切り替えはコメントアウトで行うという原始的方法を用いています。
+             * また、いずれもSeleniumとGoogle Chromeを使っています。
+             */
             //pg.Mgs();
-            pg.Unext();
+            //pg.Unext();
+            pg.Fanza();
         }
 
         public void Unext()
@@ -39,7 +41,7 @@ namespace mgs
 
             // 対象ファイルを検索する
             string[] fileList = Directory.GetFileSystemEntries(download, @"hol0001928*.xlsx");
-            
+
             // 抽出したファイル数を出力
             //Console.WriteLine("file num = " + fileList.Length.ToString());
             foreach (string path in fileList)
@@ -63,15 +65,16 @@ namespace mgs
 
             btn.Click();
 
-            
+
             wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("a[href='/unext/bapPublishedBillAppSearch/']")));
             btn = driver.FindElement(By.CssSelector("a[href='/unext/bapPublishedBillAppSearch/']"));
             btn.Click();
-             wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("a[class='wb_pc_cl_user_bill_dl_lnk pdf link_text icon_attach']")));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("a[class='wb_pc_cl_user_bill_dl_lnk pdf link_text icon_attach']")));
             btn = driver.FindElement(By.CssSelector("a[class='wb_pc_cl_user_bill_dl_lnk pdf link_text icon_attach']"));
             btn.Click();
-            
+
             // 対象ファイルを検索する
+            // 
             fileList = Directory.GetFileSystemEntries(download, @"hol0001928*.xlsx");
 
             string filePath;
@@ -91,69 +94,18 @@ namespace mgs
 
             } while (filesize1 != filesize2);
 
-            XLWorkbook workbook = new XLWorkbook(filePath);
-            IXLWorksheet sheet = workbook.Worksheets.Worksheet(3);
-            string str = "";
-            for (int i=4;i<sheet.LastRowUsed().RowNumber()+1;i++)
-            {
-                str+=(sheet.Cell(i,2).Value+","+ sheet.Cell(i, 8).Value+"\n");
-            }
-            string fileName = Path.GetFileNameWithoutExtension(filePath);
-            FileStream fs = new FileStream("./"+fileName+".csv", FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine(str);
-            sw.Close();
-            fs.Close();
-            Mail("pa01m97ksuxa615@gmail.com", "xscBLjNyHmDb9yX", "pa01m97ksuxa615@gmail.com", "nex@m-trax.net", fileName+".csv", str, "./" + fileName + ".csv");
+            /**
+             ここに、データをスプレッドシートに書き込む処理を書く。
+            filePath ... ダウンロードしたxlsxファイルのパスを表す。これに必要なデータはすべて入っています。
+            xlsxを読み込んで扱える状態にするには、別にAPIが必要だと思います。
+             */
         }
 
-        public void SpreadSheet()
-        {
-            UserCredential credential;
-
-            using (var stream =
-                new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
-            {
-                // The file token.json stores the user's access and refresh tokens, and is created
-                // automatically when the authorization flow completes for the first time.
-                string credPath = "token.json";
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    Scopes,
-                    "user",
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true)).Result;
-                Console.WriteLine("Credential file saved to: " + credPath);
-            }
-
-            // Create Google Sheets API service.
-            var service = new SheetsService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
-
-            // Define request parameters.
-            String spreadsheetId = "13XJSI6SRQ_yClthHD9tLTw2XlzcjQEz7n1ubsr9ZrBM";
-            String range = "Class Data!A2:E";
-
-            IList<IList<Object>> values = new List<IList<object>>();
-            IList<Object> list1 = new List<object>();
-            list1.Add("abcde");
-            values.Add(list1);
-            ValueRange body = new ValueRange();
-            body.Values = values;
-
-            SpreadsheetsResource.ValuesResource.UpdateRequest ur = service.Spreadsheets.Values.Update(body, spreadsheetId, range);
-            ur.ValueInputOption = SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum.USERENTERED;
-            UpdateValuesResponse result = ur.Execute();
-
-            Console.WriteLine("%d cells updated.", result.UpdatedCells);
-
-        }
 
         public void Mgs()
         {
+            string download = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Downloads";
+
             IWebDriver driver = new ChromeDriver();
 
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 20));
@@ -229,17 +181,35 @@ namespace mgs
 
                 }
             }
-            String param = "";
-            foreach (KeyValuePair<string, int> pair in dicPC)
-            {
-                param = param + (pair.Key + ":" + pair.Value + ",");
-            }
-            Console.WriteLine();
-            foreach (KeyValuePair<string, int> pair in dicSP)
-            {
-                param = param + (pair.Key + ":" + pair.Value + ",");
-            }
-            //driver.Url = "https://docs.google.com/spreadsheets/d/13XJSI6SRQ_yClthHD9tLTw2XlzcjQEz7n1ubsr9ZrBM/edit#gid=11310634";
+
+            /**
+             * DicPCにはPC Totalというデータが、DicSPにはSP Totalというデータが入っています。
+             */
+            /*
+             string filePath = download + "/mgs.csv";
+
+             string strcsv = "";
+             string strmail = "";
+             foreach (KeyValuePair<string, int> pair in dicPC)
+             {
+                 //id,attach
+                 strcsv = strcsv + (pair.Key + "," + pair.Value + "\n");
+                 strmail = strmail + (pair.Key + "\t" + pair.Value + "\n");
+             }
+             foreach (KeyValuePair<string, int> pair in dicSP)
+             {
+                 //id,attach
+                 strcsv = strcsv + (pair.Key + "," + pair.Value + "\n");
+                 strmail = strmail + (pair.Key + "\t" + pair.Value + "\n");
+             }
+             string fileName = Path.GetFileNameWithoutExtension(filePath);
+             FileStream fs = new FileStream("./" + fileName + ".csv", FileMode.Create);
+             StreamWriter sw = new StreamWriter(fs);
+             sw.WriteLine(strcsv);
+             sw.Close();
+             fs.Close();
+             Mail("pa01m97ksuxa615@gmail.com", "xscBLjNyHmDb9yX", "pa01m97ksuxa615@gmail.com", "nameasakahikari@gmail.com", fileName + ".csv", strmail, "./" + fileName + ".csv");
+             */
         }
 
         public void Fanza()
@@ -286,6 +256,9 @@ namespace mgs
             );
             System.Threading.Thread.Sleep(10000);
             ExecuteJavaScript(driver, "CSVExpload(this, '1')");
+            /**
+             * これを実行すると、sales.csvかattach.csvという名前で必要なファイルがダウンロードされると思います。
+             */
         }
 
         public static void ExecuteJavaScript(IWebDriver driver, string script)
@@ -351,6 +324,7 @@ namespace mgs
 
             Console.WriteLine("メールを送信しました");
         }
+
     }
 
 
