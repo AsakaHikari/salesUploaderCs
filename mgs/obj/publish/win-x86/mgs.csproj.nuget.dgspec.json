@@ -1,0 +1,117 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj",
+        "projectName": "salesuploader",
+        "projectPath": "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\mgs.csproj",
+        "packagesPath": "C:\\Users\\na0aya2e\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\na0aya2e\\Source\\Repos\\a\\mgs\\obj\\publish\\win-x86\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\na0aya2e\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.95.3, )"
+            },
+            "Google.Apis.Drive.v3": {
+              "target": "Package",
+              "version": "[1.48.0.2013, )"
+            },
+            "Google.Apis.Sheets.v4": {
+              "target": "Package",
+              "version": "[1.48.0.2014, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[84.0.4147.3001, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[4.7.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+              "version": "[3.1.3, 3.1.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x86",
+              "version": "[3.1.3, 3.1.3]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
+              "version": "[3.1.3, 3.1.3]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

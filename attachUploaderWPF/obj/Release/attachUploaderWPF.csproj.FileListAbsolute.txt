@@ -1,0 +1,15 @@
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\bin\Release\attachUploaderWPF.exe.config
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\bin\Release\attachUploaderWPF.exe
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\bin\Release\attachUploaderWPF.pdb
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF.csprojAssemblyReference.cache
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\MainWindow.g.cs
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\App.g.cs
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF_MarkupCompile.cache
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF_MarkupCompile.lref
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\MainWindow.baml
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF.g.resources
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF.Properties.Resources.resources
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF.csproj.GenerateResource.cache
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF.csproj.CoreCompileInputs.cache
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF.exe
+C:\Users\na0aya2e\Source\Repos\a\attachUploaderWPF\obj\Release\attachUploaderWPF.pdb

@@ -11,13 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("mgs")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("NEX Inc.")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("mgs")]
-[assembly: System.Reflection.AssemblyTitleAttribute("mgs")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.2.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.2")]
+[assembly: System.Reflection.AssemblyProductAttribute("salesuploader")]
+[assembly: System.Reflection.AssemblyTitleAttribute("salesuploader")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.2.0")]
 
 // MSBuild WriteCodeFragment クラスによって生成されました。
 
